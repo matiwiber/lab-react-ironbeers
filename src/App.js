@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Card from './components/card/Card.js';
+import AllBeers from './components/all-beers/AllBeers.js';
+import SingleBeer from './components/single-beer/SingleBeer.js';
+import FormBeer from './components/form-beer/FormBeer.js';
+
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/" component={Card} />
+            <Route exact path="/beers" component={AllBeers} />
+            <Route exact path="/single-beer/:id" component={SingleBeer} />
+            <Route exact path="/random-beer/:id" component={SingleBeer} />
+            <Route exact path="/new-beer" component={FormBeer} />
+          </Switch>
+        </BrowserRouter>
+      </div>
+    );
+  }
 }
 
 export default App;
