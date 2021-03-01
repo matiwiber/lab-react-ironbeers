@@ -28,7 +28,7 @@ class FormBeer extends Component {
 
     const { name, tagline, description, first_brewed, attenuation_level, contributed_by } = this.state
 
-    axios.post('https://ironbeer-api.herokuapp.com/beers/new', this.state)
+    axios.post('https://ih-beers-api.herokuapp.com/beers/new', this.state)
       .then(function (response) {
         console.log('salvo com sucesso', response)
       });

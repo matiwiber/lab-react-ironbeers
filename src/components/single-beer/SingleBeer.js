@@ -16,12 +16,12 @@ class SingleBeer extends Component {
     const { params } = this.props.match;
 
     if (params.id === 'random') {
-      axios.get(`https://ironbeer-api.herokuapp.com/beers/random`)
+      axios.get(`https://ih-beers-api.herokuapp.com/beers/random`)
         .then((response) => {
           this.setState({ beer: response.data[0] });
         });
     } else {
-      axios.get(`https://ironbeer-api.herokuapp.com/beers/single/${params.id}`)
+      axios.get(`https://ih-beers-api.herokuapp.com/beers/single/${params.id}`)
         .then((response) => {
           this.setState({ beer: response.data });
         });
